@@ -3,9 +3,9 @@
 #   All rights reserved.
 #
 #   Developed by: Philipp Paulweber et al.
-#   <https://github.com/fiskaly/docker.migrate-postgres/graphs/contributors>
+#   <https://github.com/fiskaly/docker.migrate-pgsql/graphs/contributors>
 #
-#   This file is part of docker.migrate-postgres.
+#   This file is part of docker.migrate-pgsql.
 #
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
 #   of this software and associated documentation files (the "Software"), to deal
@@ -45,7 +45,7 @@ RUN apk update \
 
 RUN CGO_ENABLED=0 \
     go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@v4.15.2 \
- && /go/bin/migrate version
+ && /go/bin/migrate -version
 
 FROM scratch \
   AS image
@@ -57,4 +57,4 @@ COPY --from=build /go/bin/migrate /migrate
 
 USER appuser:appuser
 ENTRYPOINT ["/migrate"]
-CMD ["help"]
+CMD ["-help"]

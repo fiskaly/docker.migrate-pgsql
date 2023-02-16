@@ -3,9 +3,9 @@
 #   All rights reserved.
 #
 #   Developed by: Philipp Paulweber et al.
-#   <https://github.com/fiskaly/docker.migrate-postgres/graphs/contributors>
+#   <https://github.com/fiskaly/docker.migrate-pgsql/graphs/contributors>
 #
-#   This file is part of docker.migrate-postgres.
+#   This file is part of docker.migrate-pgsql.
 #
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
 #   of this software and associated documentation files (the "Software"), to deal
@@ -28,4 +28,4 @@
 default: build
 
 build:
-	docker build -t docker.migrate-postgres:`git describe --tags --always --dirty` .
+	docker build -t docker.migrate-pgsql:`git describe --tags --always --dirty` .
